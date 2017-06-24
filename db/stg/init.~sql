@@ -1,0 +1,14 @@
+create user ODS identified by ODS;
+
+grant create session to ODS;
+grant create table to ODS;
+
+create bigfile tablespace tbs_ODS_T
+    datafile 'C:\ORACLE\APP\EMIL\ORADATA\INFO\tbs_ODS_T.DBF' size 1M reuse
+    autoextend on next 1M maxsize 500M;
+create bigfile tablespace tbs_ODS_I
+    datafile 'C:\ORACLE\APP\EMIL\ORADATA\INFO\tbs_ODS_I.DBF' size 1M reuse
+    autoextend on next 1M maxsize 500M;
+
+alter user ODS quota unlimited on tbs_ODS_T;
+alter user ODS quota unlimited on tbs_ODS_I;
